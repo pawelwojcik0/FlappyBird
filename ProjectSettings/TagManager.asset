@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Bird
+  - Obstacle
+  - ObstacleTrigger
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1222423243
+    locked: 0
+  - name: Obstacles
+    uniqueID: 2159231063
+    locked: 0
+  - name: Terrain
+    uniqueID: 2657515613
+    locked: 0
+  - name: Bird
+    uniqueID: 4220885997
+    locked: 0
+  - name: UI
+    uniqueID: 3576080991
+    locked: 0
