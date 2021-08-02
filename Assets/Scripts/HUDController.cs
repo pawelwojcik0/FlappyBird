@@ -6,22 +6,27 @@ using UnityEngine.UI;
 public class HUDController : MonoBehaviour
 {
     [SerializeField] private TMPro.TextMeshProUGUI PointsText;
+    [SerializeField] private TMPro.TextMeshProUGUI BestScore;
     [SerializeField] private Button UnMute;
     [SerializeField] private Button Mute;
     [SerializeField] private Button VolumeUp;
     [SerializeField] private Button VolumeDown;
 
+    private SaveManager m_SaveManager;
     private BirdController m_Bird;
     private Rigidbody2D m_BirdRigid;
     private Animator m_BirdAnimator;
+    private AudioSource m_BirdAudioSoruce;
     private bool isSimulated;
     private float AudioVolume;
 
     private void Start()
     {
+        m_SaveManager = FindObjectOfType<SaveManager>();
         m_Bird = FindObjectOfType<BirdController>();
         m_BirdRigid = m_Bird.GetComponent<Rigidbody2D>();
         m_BirdAnimator = m_Bird.GetComponent<Animator>();
+        m_BirdAudioSoruce = m_Bird.GetComponent<AudioSource>();
 
         UnMute.onClick.AddListener(delegate { OnMute(); });
         Mute.onClick.AddListener(delegate { OnUnMute(); });
@@ -50,7 +55,9 @@ public class HUDController : MonoBehaviour
             else if (isSimulated == false)
             {
                 PlayPause(false);
+                BestScore.text = "Best score: " + m_SaveManager.MaxPoint;
             }
+            
         }
     }
 
@@ -99,8 +106,10 @@ public class HUDController : MonoBehaviour
         Mute.gameObject.SetActive(false);
         VolumeUp.gameObject.SetActive(!state);
         VolumeDown.gameObject.SetActive(!state);
+        BestScore.gameObject.SetActive(!state);
         m_BirdRigid.simulated = state;
         m_BirdAnimator.enabled = state;
+        m_BirdAudioSoruce.enabled = state;
     }
 
 }

@@ -73,7 +73,7 @@ public class Manager : Singleton<Manager>
             Obstacles.RemoveAt(0);
         }
 
-        Debug.Log("pkt: " + Points);
+        //Debug.Log("pkt: " + Points);
 
     }
 
