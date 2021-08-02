@@ -28,7 +28,6 @@ public class BirdController : MonoBehaviour
     private void Update()
     {
         Movement();
-        Debug.Log("Velocity: " + Velocity);
     }
     private void FixedUpdate()
     {

@@ -29,7 +29,7 @@ public class ObstacleController : MonoBehaviour
         UpColumn = transform.Find("UpColumn").gameObject.GetComponent<SpriteRenderer>();
 
         UpdateObstacleParms();
-        Debug.Log("GapHeight: " + GapHeight);
+        
     }
 
 

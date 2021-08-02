@@ -45,8 +45,6 @@ public class Manager : Singleton<Manager>
             Obstacles.Add(Instantiate(ObstaclePrefab, new Vector3(m_BirdController.transform.position.x + DistanseToBird, transform.position.y, transform.position.z), Quaternion.identity));
         }
 
-
-
         Points = 0;
     }
 
@@ -75,6 +73,7 @@ public class Manager : Singleton<Manager>
             Obstacles.RemoveAt(0);
         }
 
+        Debug.Log("pkt: " + Points);
 
     }
 
