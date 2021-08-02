@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class HUDController : MonoBehaviour
 {
-
     [SerializeField] private TMPro.TextMeshProUGUI PointsText;
     [SerializeField] private Button UnMute;
     [SerializeField] private Button Mute;
@@ -57,7 +56,7 @@ public class HUDController : MonoBehaviour
 
     public void UpdatePoints(int points)
     {
-        PointsText.text = " " + points;
+        PointsText.text = "" + points;
     }
 
     private void OnUnMute()

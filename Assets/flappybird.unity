@@ -1207,7 +1207,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1242720341}
   - component: {fileID: 1242720340}
-  - component: {fileID: 1242720342}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -1280,23 +1279,6 @@ Transform:
   m_Father: {fileID: 748899926}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1242720342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1242720339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6fda7a8707110e42b11cb0d34e57a44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PointsText: {fileID: 0}
-  UnMute: {fileID: 0}
-  Mute: {fileID: 0}
-  VolumeUp: {fileID: 0}
-  VolumeDown: {fileID: 0}
 --- !u!1 &1688635706
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,7 +1391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PointsText: {fileID: 1782473997}
-  UnMute: {fileID: 0}
+  UnMute: {fileID: 572088096}
   Mute: {fileID: 144808394}
   VolumeUp: {fileID: 69993358}
   VolumeDown: {fileID: 614234834}
