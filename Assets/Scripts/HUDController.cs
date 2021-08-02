@@ -11,6 +11,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] private Button Mute;
     [SerializeField] private Button VolumeUp;
     [SerializeField] private Button VolumeDown;
+    [SerializeField] private Button Quit;
 
     private SaveManager m_SaveManager;
     private BirdController m_Bird;
@@ -18,7 +19,8 @@ public class HUDController : MonoBehaviour
     private Animator m_BirdAnimator;
     private AudioSource m_BirdAudioSoruce;
     private bool isSimulated;
-    private float AudioVolume;
+
+    public float AudioVolume;
 
     private void Start()
     {
@@ -32,10 +34,10 @@ public class HUDController : MonoBehaviour
         Mute.onClick.AddListener(delegate { OnUnMute(); });
         VolumeUp.onClick.AddListener(delegate { OnChangeVolume(true); });
         VolumeDown.onClick.AddListener(delegate { OnChangeVolume(false); });
+        Quit.onClick.AddListener(delegate { OnQuit(); });
 
         isSimulated = true;
-        
-        AudioListener.volume = 0.5f;
+       
         AudioVolume = AudioListener.volume;
 
         PlayPause(true);
@@ -99,6 +101,11 @@ public class HUDController : MonoBehaviour
         AudioVolume = newValue;
     }
 
+    private void OnQuit()
+    {
+        Application.Quit();
+    }
+
     private void PlayPause(bool state)
     {
 
@@ -107,6 +114,7 @@ public class HUDController : MonoBehaviour
         VolumeUp.gameObject.SetActive(!state);
         VolumeDown.gameObject.SetActive(!state);
         BestScore.gameObject.SetActive(!state);
+        Quit.gameObject.SetActive(!state);
         m_BirdRigid.simulated = state;
         m_BirdAnimator.enabled = state;
         m_BirdAudioSoruce.enabled = state;
