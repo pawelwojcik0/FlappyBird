@@ -7,8 +7,7 @@ public class HUDController : MonoBehaviour
 {
     [SerializeField] private TMPro.TextMeshProUGUI PointsText;
     [SerializeField] private TMPro.TextMeshProUGUI BestScore;
-    [SerializeField] private Button UnMute;
-    [SerializeField] private Button Mute;
+    [SerializeField] private Button Volume;
     [SerializeField] private Button VolumeUp;
     [SerializeField] private Button VolumeDown;
     [SerializeField] private Button Quit;
@@ -30,8 +29,6 @@ public class HUDController : MonoBehaviour
         m_BirdAnimator = m_Bird.GetComponent<Animator>();
         m_BirdAudioSoruce = m_Bird.GetComponent<AudioSource>();
 
-        UnMute.onClick.AddListener(delegate { OnMute(); });
-        Mute.onClick.AddListener(delegate { OnUnMute(); });
         VolumeUp.onClick.AddListener(delegate { OnChangeVolume(true); });
         VolumeDown.onClick.AddListener(delegate { OnChangeVolume(false); });
         Quit.onClick.AddListener(delegate { OnQuit(); });
@@ -68,20 +65,6 @@ public class HUDController : MonoBehaviour
         PointsText.text = "" + points;
     }
 
-    private void OnUnMute()
-    {
-        UnMute.gameObject.SetActive(true);
-        Mute.gameObject.SetActive(false);
-        AudioListener.volume = AudioVolume;
-    }
-
-    private void OnMute()
-    {
-            UnMute.gameObject.SetActive(false);
-            Mute.gameObject.SetActive(true);
-            AudioListener.volume = 0.0f;
-    }
-
     private void OnChangeVolume(bool vol)
     {
         float newValue = AudioListener.volume;
@@ -109,8 +92,7 @@ public class HUDController : MonoBehaviour
     private void PlayPause(bool state)
     {
 
-        UnMute.gameObject.SetActive(true);
-        Mute.gameObject.SetActive(false);
+        Volume.gameObject.SetActive(!state);
         VolumeUp.gameObject.SetActive(!state);
         VolumeDown.gameObject.SetActive(!state);
         BestScore.gameObject.SetActive(!state);
