@@ -36,12 +36,34 @@ public class BirdController : MonoBehaviour
 
     private void Movement()
     {
+#if UNITY_ANDROID
+        if (Input.touchCount <= 0)
+            return;
+
+        switch (Input.touches[0].phase)
+        {
+            case TouchPhase.Began:
+                {
+                    m_rigidbody.AddForce(Vector2.up * UpMovement);
+                    m_AudioSource.PlayOneShot(Up);  
+                }
+                break;
+        }
+        if (m_rigidbody.velocity.x > 0)
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(TargetRotation), step);
+        }
+
+        else if (m_rigidbody.velocity.x < 0)
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(-TargetRotation), step);
+        }
+#else
         if (Input.GetKeyDown(KeyCode.Space))
         {
             m_rigidbody.AddForce(Vector2.up * UpMovement);
             m_AudioSource.PlayOneShot(Up);
         }
-
         if (m_rigidbody.velocity.y > 0)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(TargetRotation), step);
@@ -51,6 +73,9 @@ public class BirdController : MonoBehaviour
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(-TargetRotation), step);
         }
+        
+#endif
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
